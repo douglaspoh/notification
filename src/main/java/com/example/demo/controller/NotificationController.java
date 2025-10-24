@@ -16,8 +16,8 @@ public class NotificationController {
     @Autowired
     NotificationService notificationService;
 
-    @PostMapping("/email")
-    public ResponseEntity<NotificationResponse> sendEmail(@Valid @RequestBody NotificationRequest request) {
-        return notificationService.sendEmail(request);
+    @PostMapping("/notify")
+    public void sendEmail(@Valid @RequestBody NotificationRequest notification) {
+        notificationService.sendNotification(notification);
     }
 }
